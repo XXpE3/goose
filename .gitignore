@@ -40,3 +40,5 @@ debug_*.txt
 # Generated files
 .docusaurus
 .cache-loader
+
+.history/
