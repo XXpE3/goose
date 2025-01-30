@@ -8,6 +8,7 @@ pub mod google;
 pub mod groq;
 pub mod oauth;
 pub mod ollama;
+pub mod omg;
 pub mod openai;
 pub mod openrouter;
 pub mod utils;

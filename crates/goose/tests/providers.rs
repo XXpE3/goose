@@ -3,7 +3,7 @@ use dotenv::dotenv;
 use goose::message::{Message, MessageContent};
 use goose::providers::base::Provider;
 use goose::providers::errors::ProviderError;
-use goose::providers::{anthropic, databricks, google, groq, ollama, openai, openrouter};
+use goose::providers::{anthropic, databricks, google, groq, ollama, openai, openrouter, omg};
 use mcp_core::content::Content;
 use mcp_core::tool::Tool;
 use std::collections::HashMap;
@@ -409,6 +409,17 @@ async fn test_openrouter_provider() -> Result<()> {
         &["OPENROUTER_API_KEY"],
         None,
         openrouter::OpenRouterProvider::default,
+    )
+    .await
+}
+
+#[tokio::test]
+async fn test_omg_provider() -> Result<()> {
+    test_provider(
+        "Omg",
+        &["OMG_API_KEY"],
+        None,
+        omg::OmgProvider::default,
     )
     .await
 }

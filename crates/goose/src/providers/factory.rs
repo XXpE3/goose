@@ -5,6 +5,7 @@ use super::{
     google::GoogleProvider,
     groq::GroqProvider,
     ollama::OllamaProvider,
+    omg::OmgProvider,
     openai::OpenAiProvider,
     openrouter::OpenRouterProvider,
 };
@@ -32,6 +33,7 @@ pub fn create(name: &str, model: ModelConfig) -> Result<Box<dyn Provider + Send 
         "ollama" => Ok(Box::new(OllamaProvider::from_env(model)?)),
         "openrouter" => Ok(Box::new(OpenRouterProvider::from_env(model)?)),
         "google" => Ok(Box::new(GoogleProvider::from_env(model)?)),
+        "omg" => Ok(Box::new(OmgProvider::from_env(model)?)),
         _ => Err(anyhow::anyhow!("Unknown provider: {}", name)),
     }
 }
